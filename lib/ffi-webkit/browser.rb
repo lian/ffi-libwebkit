@@ -35,7 +35,8 @@ class FFI::Webkit
       @status.foreground = "#ffffff"
       @input.foreground  = "#000000"
       @input.background  = "#ffffff"
-      @webkit.focusable  = false
+      #@webkit.focusable  = false
+      @webkit.focusable  = true
       @input.editable    = false
       @input.focusable   = false
       @info.alignment(0, 0)
@@ -43,14 +44,15 @@ class FFI::Webkit
 
       # Containers
       @win.add(@vbox)
-      @scrolled.add(@webkit)
+      #@scrolled.add(@webkit)
 
       # Boxes
-      @vbox.add(@scrolled, true,  true, 0)
-      @vbox.add(@hbox,     false, true, 0)
-      @hbox.add(@info,     true,  true, 5)
-      @hbox.add(@status,   true,  true, 5)
-      @vbox.add(@input,    false, true, 0)
+      #@vbox.add(@scrolled, true,  true, 0)
+      @vbox.add(@webkit, true,  true, 0)
+      #@vbox.add(@hbox,     false, true, 0)
+      #@hbox.add(@info,     true,  true, 5)
+      #@hbox.add(@status,   true,  true, 5)
+      #@vbox.add(@input,    false, true, 0)
 
       # Signals
       @win.connect("destroy",                  method(:win_destroy).to_proc,     nil)
